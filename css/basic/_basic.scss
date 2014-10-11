@@ -1,0 +1,115 @@
+/**
+ *  @ content basic style
+ *  @ author linbin
+ */
+/** block element align middle **/
+.bam {
+	margin: 0 auto;
+}
+
+/** font message **/
+.ffYahei {
+	font-family: $yh;
+}
+
+.fs0 {
+	font-size: 0;
+}
+.fwb {
+	font-weight: bold;
+}
+
+/** colors **/
+.cwh {
+	color: #fff;
+}
+
+/** all width**/
+.w100p {
+	width: 100%;
+}
+/** all height **/
+.h100p {
+	height: 100%;
+}
+
+/** all line-height **/
+
+/** all margins **/
+.mt10 {
+	margin-top: 10px;
+}
+
+.m0 {
+	margin: 0;
+}
+/** displays **/
+.ib {
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+.db {
+	display: block;
+}
+
+.dn {
+	display: none;
+}
+
+.di {
+	display: inline;
+}
+
+/** over flows**/
+.oh {
+	overflow: hidden;
+}
+
+/** vertical aligns **/
+.vb {
+	vertical-align: bottom;
+}
+.vm {
+	vertical-align: middle;
+}
+
+.vt {
+	vertical-align: top;
+}
+/** text align **/
+.tc {
+	text-align: center;
+}
+
+.tr {
+	text-align: right;
+}
+
+/** float message **/
+.l {
+	float: left;
+}
+
+.r {
+	float: right;
+}
+
+/** position **/
+.pr {
+	position: relative;
+}
+
+.pa {
+	position: absolute;
+}
+
+.pf {
+	position: fixed;
+}
+
+/** cusor pointer **/
+.cp {
+	cursor: pointer;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The project framework</title>
+    <meta name="keyworks" content="My project Framework model">
+    <meta name="description" content="Framework model, all projects can use this to build" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="http://forkme.info/favicon.ico" type="image/x-icon">
+    <!-- html5shiv.js 让IE支持HTML5 -->
+    <!--[if lt IE 9]>
+	        <script src="js/utils/basic/html5shiv.js"></script><![endif]-->
+    <!-- respond.js 让IE支持CSS3 Media Queries -->
+    <!--[if lt IE 9]>
+	        <script src="js/utils/basic/respond.js"></script><![endif]-->
+    <!-- DD_belatedPNG.js 让IE支持PNG透明图片(png24) -->
+    <!--[if lte IE 6]>
+	        <script src="js/utls/extensions/DD_belatedPNG.js"></script>
+	        <script>DD_belatedPNG.fix('img, .pngfix');</script>
+	    <![endif]-->
+    <!--[if !IE]><!-->
+    <script>
+    document.write(window.navigator.userAgent);
+    alert('没用IE, 不错');
+    </script>
+    <!--<![endif]-->
+</head>
+
+<body>
+    <div>
+        这是一个html的模板，请在这边添加内容~~
+    </div>
+</body>
+<script id="seajsnode" src="js/core/seajs/sea.js" id="seajsnode"></script>
+<script src="js/projects/config.js"></script>
+<script type="text/javascript">
+	seajs.use('./js/projects/test');
+</script>
+</html>

@@ -1,0 +1,169 @@
+/**
+ *  @ content common functions
+ *  @ author linbin
+ */
+@charset "utf-8";
+
+@mixin wh($width,$height)
+{
+	width: if(unit($width) == "", $width + $px, $width);
+	height: if(unit($height) == "", $height + $px, $height);
+}
+
+@mixin hl($height)
+{
+	height: if(unit($height) == "", $height + $px, $height);
+	line-height: if(unit($height) == "", $height + $px, $height);
+}
+
+@mixin hlt($height)
+{
+	@include hl($height);
+	text-align: center;
+}
+
+@mixin whl($width,$height)
+{
+	@include wh($width,$height);
+	line-height: $height + $px;
+}
+
+@mixin whlt($width,$height)
+{
+	@include whl($width,$height);
+	text-align: center;
+}
+
+@mixin op($op)
+{
+	opacity:$op / 100;
+	filter:alpha(opacity = $op);
+}
+
+@mixin bi($width, $height, $background, $display: inline-block)
+{
+	@include wh($width, $height);
+	background: $background;
+	display: $display;
+}
+
+@mixin ba($width, $height, $background, $display: inline-block)
+{
+	@include bi($width, $height, $background, $display: inline-block);
+	border:0 none;
+	cursor: pointer;
+}
+
+@mixin bp($left, $top)
+{
+	background-position: - $left + $px - $top + $px;
+}
+
+@mixin bg($width, $height, $left, $top, $display: inline-block)
+{
+    @include wh($width, $height);
+    @include bp($left, $top);
+    background-image: $bgi;
+    display: $display;
+}
+
+@mixin bc($width, $height, $color, $background, $borderWidth, $borderColor, $borderRadius: 0,$fontSize: 12, $display: inline-block)
+{
+	@include whlt($width,$height);
+	color: $color;
+	background: $background;
+	border: $borderWidth + $px solid $borderColor; 
+	border-radius: $borderRadius + $px;
+	font-size: $fontSize + $px;
+	display: $display;
+	cursor: pointer;
+}
+
+@mixin bt($width,$height,$color,$background, $display: inline-block)
+{
+	@include whlt($width,$height);
+	color: $color;
+	background: $background;
+	display: $display;	
+	border:0 none;
+	cursor: pointer;
+}
+
+@mixin ta($maxWidth,$maxHeight,$fontSize,$lineHeight,$borderWidth,$borderColor)
+{
+	width: $maxWidth - ($lineHeight - $fontSize) * 2 - $borderWidth * 2 + $px;
+    height: $maxHeight - ($lineHeight - $fontSize) - $borderWidth * 2 + $px;
+    font-size: $fontSize + $px;
+    line-height: $lineHeight + $px;
+    border: $borderWidth + $px solid $borderColor;    
+    padding: ($lineHeight - $fontSize) / 2 + $px ($lineHeight - $fontSize) + $px;
+}
+
+@mixin text() 
+{
+    th 
+    {
+        padding-right: 4px;
+        text-align: right;
+    }
+
+    input 
+    {
+    	@include whl(200,28);
+        margin: 5px 0;
+        padding: 0 7px;
+        font-size: 14px;
+        border: 1px solid $bdc;
+    }    
+}
+
+@mixin radio($marginRight: 10, $display: inline-block)
+{
+    margin-right: $marginRight + $px;    
+    display: $display;
+
+    >* 
+    {
+    	vertical-align: middle;
+    }
+}
+
+@mixin el()
+{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;	
+}
+
+@mixin yd()
+{
+	font-family: Helvetica;
+	font-weight: bold;
+}
+
+@mixin cb()
+{
+	*zoom: 1;
+	&:before
+	{
+		content: "";
+		display: table;
+	}
+}
+
+@mixin ca()
+{
+	*zoom: 1;
+	&:after
+	{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin oz() 
+{
+	overflow: hidden;
+	*zoom: 1;
+}
