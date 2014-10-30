@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>水平方向滑动效果</title>
+    <style>
+    	body {
+    		margin: 0;
+    	}
+    	/** 动画效果 **/
+		.u_carousel {
+			border-top: 1px solid #fff;
+			height: 450px;
+		}
+
+		ol {
+			list-style: none;
+			padding: 0;
+		}
+		.u_screen, ol, li {
+			height: 100%;
+		}
+		
+		li {
+			float: left;
+			background-size: 100% 100%;
+		}
+		
+		.b_prev, .b_next {
+			text-decoration: none;
+			position: absolute;
+			height: 120px;
+			width: 50px;
+			top: 20%;
+			background-color: #000;
+			opacity: .6;
+			font-size: 40px;
+		}
+		
+		.b_prev span,  .b_next span {
+			height: 100%;
+			color: #fff;
+			margin-left: 25%;
+		}
+
+		.b_prev span:after,  .b_next span:after {
+			display: inline-block;
+			vertical-align: middle;
+			content: "";
+			height: 100%;
+		}
+
+		.b_prev {
+			left: 0;
+		}
+
+		.b_next {
+			right: 0;
+		}
+
+		.b_page {
+			left: 540px;
+			font-size: 0;
+		}
+		.b_page a {
+			display: inline-block;
+			cursor: pointer;
+			width: 10px;
+			height: 10px;
+			border: 1px solid #000;
+			border-radius: 5px;
+			background-color: #fff;
+			opacity: .8;
+			margin-left: 7px;
+		}
+		
+		.u_carousel .b_page {
+			position: absolute;
+		}
+		.b_page a.S_current {
+			background-color: #0081cc;
+		}
+    </style>
+</head>
+<body>
+    <div class="u_carousel J_carousel">
+        <div class="u_screen J_screen">
+            <ol class="u_film J_film" style="width: 100000px; margin-left: 0px;">
+                <li class="u_film_item" style="width: 1280px; background-image: url(http://img2.atido.com/7/2014/09/24/83077363c49.jpg);">
+                    <a href="http://dianshang.jingzhuan.com.cn/index.php?m=service&amp;a=about" target="_blank" class="db h100p"></a>
+                </li>
+                <li class="u_film_item" style="width: 1280px; background-image: url(http://img2.atido.com/4/2014/09/28/fca2f8b8f3c.jpg);">
+                    <a href="http://dianshang.jingzhuan.com.cn/yxtj" target="_blank" class="db h100p"></a>
+                </li>
+            </ol>
+        </div>
+
+        <a class="b_prev J_prev" href="javascript:;">
+            <span class="ib vm">&lt;</span>
+        </a>
+        <a class="b_next J_next" href="javascript:;">
+            <span class="ib vm">&gt;</span>
+        </a>
+        <div class="b_page J_page">
+            <a herf="javascript:;" class="S_current"></a>
+            <a herf="javascript:;" class=""></a>
+        </div>
+    </div>
+</body>
+<script id="seajsnode" src="../../core/seajs/sea.js" id="seajsnode"></script>
+<script src="../config.js"></script>
+<script type="text/javascript">
+	seajs.use(['jquery', 'carousel'], function($, Carousel){
+		var width = $('.J_screen').width();
+	    $('.J_film').children().width(width);
+	    
+	    Carousel.set();
+	    var auto;
+
+	    function autoPlay() {
+
+	        auto = setInterval(function() {
+
+	            $('.J_carousel').find('.J_next').click();
+	        }, 5 * 1000)
+	    }
+
+	    autoPlay();
+
+	    $('.J_carousel').hover(
+	        function() {
+	            clearInterval(auto);
+	        },
+	        function() {
+	            autoPlay();
+	        }
+	    );
+	});
+</script>
+</html>

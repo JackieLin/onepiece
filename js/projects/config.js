@@ -7,6 +7,7 @@ seajs.config({
 
 	alias: {
 		'jquery': 'jquery.min',
+        'carousel': '../../utils/extensions/carousel/carousel'
 	},
 
 	paths: {
