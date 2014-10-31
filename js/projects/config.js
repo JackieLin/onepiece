@@ -7,7 +7,9 @@ seajs.config({
 
 	alias: {
 		'jquery': 'jquery.min',
-        'carousel': '../../utils/extensions/carousel/carousel'
+        'carousel': '../../utils/extensions/carousel/carousel',
+        'utils': 'globalUtils',
+        'slide': '../../utils/extensions/carousel/slide',
 	},
 
 	paths: {

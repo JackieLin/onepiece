@@ -219,7 +219,7 @@
             </ul>
             <!-- 焦点图 图片+文字 结束 -->
         </div>
-        <div class="ui-switchable-prev focus-fun" data-ui-mark="tool">
+        <div class="focus-fun" data-ui-mark="tool">
 	        <a class="bt bt-focus-prev" hidefocus="" href="javascript:;" data-ui-mark="prev">前一张</a> 
             <div class="focus-thumb" data-ui-mark="thumbsbox">
                 <div class="focus-thumb-in">
@@ -262,5 +262,11 @@
         </div>
     </div>
 </body>
-
+<script id="seajsnode" src="../../core/seajs/sea.js" id="seajsnode"></script>
+<script src="../config.js"></script>
+<script type="text/javascript">
+    seajs.use(['slide'], function(Slide) {
+        var slide = new Slide();
+    });
+</script>
 </html>
