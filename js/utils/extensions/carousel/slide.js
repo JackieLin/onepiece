@@ -1,0 +1,3 @@
+define(require, exports, module) {
+	
+};

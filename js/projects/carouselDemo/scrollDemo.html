@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>水平方向滚动效果</title>
+    <style>
+    p {
+    	margin: 0;
+    }
+    a{
+    	text-decoration: none;
+    }
+    .focus-in {
+        position: relative;
+        height: 418px;
+    }
+    .focus-con {
+        position: absolute;
+        z-index: 2;
+    }
+    .ui-con-item {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .ui-con-item a,
+    .ui-con-item a:hover {
+        color: #fff;
+    }
+    .ui-con-item img {
+        width: 358px;
+        height: 418px;
+    }
+    .ui-con-item .txt-box {
+        overflow: hidden;
+        position: absolute;
+        z-index: 30;
+        left: 36px;
+        bottom: 72px;
+        width: 290px;
+        font-family: 'Microsoft YaHei', 'SimHei';
+    }
+    .focus-con-item .tit {
+        font-size: 24px;
+    }
+    .focus-con-item .detail {
+        font-size: 16px;
+    }
+    .focus-fun {
+        position: absolute;
+        z-index: 3;
+        left: 4px;
+        bottom: 7px;
+        width: 350px;
+    }
+    .ico,
+    .bt,
+    .arrow {
+        display: inline-block;
+        overflow: hidden;
+        background: url(http://ue3.17173cdn.com/a/www/index/2014/images/b1-1.png) no-repeat;
+    }
+    .bt {
+        text-align: center;
+    }
+    .focus-fun .bt {
+        overflow: hidden;
+        float: left;
+        width: 30px;
+        height: 54px;
+        line-height: 20em;
+    }
+    .focus-fun .bt-focus-prev {
+        background-position: -221px -188px;
+    }
+    .focus-fun .bt-focus-next {
+        background-position: -265px -188px;
+    }
+    .focus-thumb {
+        overflow: hidden;
+        position: relative;
+        float: left;
+        width: 290px;
+        height: 54px; 
+    }
+    .focus-thumb-in {
+        overflow: hidden;
+        width: 100000px;
+    }
+    .focus-thumb-box {
+        float: left;
+    }
+    .focus-thumb-item {
+        /*display: inline*/
+        
+        ;
+        float: left;
+        margin-right: 19px;
+    }
+    .focus-thumb-item a {
+        display: block;
+        width: 80px;
+        height: 50px;
+        border: 2px solid #808080;
+        background-color: #000;
+    }
+    .focus-thumb-item img {
+        width: 80px;
+        height: 50px;
+        filter: alpha(opacity: 50);
+        opacity: .5;
+    }
+    .ui-switchable-current {
+        position: absolute;
+        top: 0;
+        z-index: 40;
+        left: 0;
+        width: 80px;
+        height: 50px;
+        border: 2px solid #fdd000;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="bigeye focus-in forsetLink49 classNameForSetLinkSearch" data-ui-control="Slide" adskey="3d97246cbdbaf57d16ed8042f6b75a21">
+        <div class="ui-con">
+            <ul>
+            	<li class="ui-con-item" data-ui-mark="imageContainer" style="width: 358px; height: 418px;">
+                    <p class="img-box">
+                        <a href="http://tu.17173.com/" target="_blank" data-ui-mark="link">
+                            <img alt="" src="http://i1.17173.itc.cn/2014/www/bigeye/2014/10/y20141029main_c.jpg" data-ui-mark="img" data-src="http://ue2.17173.itc.cn/a/www/index/2013/images/lazyloadplaceholder.gif" class="">
+                        </a>
+                    </p>
+                    <div class="txt-box">
+                        <h2 class="tit"><a href="http://tu.17173.com/" target="_blank" data-ui-mark="title">有极品妹子的游戏还会差吗</a>
+                        </h2>
+                        <p class="detail"><a href="http://tu.17173.com/" target="_blank" data-ui-mark="desc">海量高清美图让你一次就能找到好游戏</a>
+                        </p>
+                    </div>
+                </li>
+
+	            <li class="ui-con-item" data-ui-mark="imageContainer" style="width: 358px; height: 0px;">
+                    <p class="img-box">
+                        <a href="http://news.17173.com/content/2014-10-29/20141029143920005_1.shtml" target="_blank" data-ui-mark="link">
+                            <img alt="" src="http://i3.17173.itc.cn/2014/www/bigeye/2014/10/y20141029main_b.jpg" data-ui-mark="img" data-src="http://ue2.17173.itc.cn/a/www/index/2013/images/lazyloadplaceholder.gif" class="">
+                        </a>
+                    </p>
+                    <div class="txt-box">
+                        <h2 class="tit"><a href="http://news.17173.com/content/2014-10-29/20141029143920005_1.shtml" target="_blank" data-ui-mark="title">照片讲述COSer幕后秘辛</a>
+                        </h2>
+                        <p class="detail"><a href="http://news.17173.com/content/2014-10-29/20141029143920005_1.shtml" target="_blank" data-ui-mark="desc">理想是丰满的 现实是骨感的 PS万能的</a>
+                        </p>
+                    </div>
+                </li>
+
+                <li class="ui-con-item" data-ui-mark="imageContainer" style="width: 358px; height: 0px;">
+                    <p class="img-box">
+                        <a href="http://news.17173.com/content/2014-10-30/20141030095731131_1.shtml" target="_blank" data-ui-mark="link">
+                            <img alt="" src="http://i2.17173.itc.cn/2014/www/bigeye/2014/10/y20141030main_a.jpg" data-ui-mark="img" data-src="http://ue2.17173.itc.cn/a/www/index/2013/images/lazyloadplaceholder.gif" class="">
+                        </a>
+                    </p>
+                    <div class="txt-box">
+                        <h2 class="tit"><a href="http://news.17173.com/content/2014-10-30/20141030095731131_1.shtml" target="_blank" data-ui-mark="title">中青宝新游 魔戒传说首曝</a>
+                        </h2>
+                        <p class="detail"><a href="http://news.17173.com/content/2014-10-30/20141030095731131_1.shtml" target="_blank" data-ui-mark="desc">指环王改编网游 重现西方奇幻文化经典</a>
+                        </p>
+                    </div>
+                </li>
+
+                <li class="ui-con-item" data-ui-mark="imageContainer" style="width: 358px; height: 0px;">
+                    <p class="img-box">
+                        <a href="http://news.17173.com/content/2014-10-30/20141030100144344_1.shtml" target="_blank" data-ui-mark="link">
+                            <img alt="" src="http://i1.17173.itc.cn/2014/www/bigeye/2014/10/y20141030main_b.jpg" data-ui-mark="img" data-src="http://ue2.17173.itc.cn/a/www/index/2013/images/lazyloadplaceholder.gif" class="">
+                        </a>
+                    </p>
+                    <div class="txt-box">
+                        <h2 class="tit"><a href="http://news.17173.com/content/2014-10-30/20141030100144344_1.shtml" target="_blank" data-ui-mark="title">迅雷宣布代理《恶魔契约》</a>
+                        </h2>
+                        <p class="detail"><a href="http://news.17173.com/content/2014-10-30/20141030100144344_1.shtml" target="_blank" data-ui-mark="desc">11月先行测试 中文LOGO 开场动画首曝</a>
+                        </p>
+                    </div>
+                </li>
+                <li class="ui-con-item" data-ui-mark="imageContainer" style="width: 358px; height: 0px;">
+                    <p class="img-box">
+                        <a href="http://news.17173.com/content/2014-10-30/20141030100850788_1.shtml" target="_blank" data-ui-mark="link">
+                            <img alt="" src="http://i3.17173.itc.cn/2014/www/bigeye/2014/10/y20141030main_dd.jpg" data-ui-mark="img" data-src="http://ue2.17173.itc.cn/a/www/index/2013/images/lazyloadplaceholder.gif" class="">
+                        </a>
+                    </p>
+                    <div class="txt-box">
+                        <h2 class="tit"><a href="http://news.17173.com/content/2014-10-30/20141030100850788_1.shtml" target="_blank" data-ui-mark="title">17173屌丝逆袭团走进印度</a>
+                        </h2>
+                        <p class="detail"><a href="http://news.17173.com/content/2014-10-30/20141030100850788_1.shtml" target="_blank" data-ui-mark="desc">想知道阿三们如何开挂吗?都在这里了!</a>
+                        </p>
+                    </div>
+                </li>
+                                <!-- 焦点图 图片+文字 开始 -->
+                <li class="ui-con-item" data-ui-mark="imageContainer" style="width: 358px; height: 0px;">
+                    <p class="img-box">
+                        <a href="http://news.17173.com/content/2014-10-31/20141031094631771_1.shtml" target="_blank" data-ui-mark="link">
+                            <img alt="" src="http://i1.17173.itc.cn/2014/www/bigeye/2014/10/y20141031main_a.jpg" data-ui-mark="img" data-src="http://ue2.17173.itc.cn/a/www/index/2013/images/lazyloadplaceholder.gif" class="">
+                        </a>
+                    </p>
+                    <div class="txt-box">
+                        <h2 class="tit"><a href="http://news.17173.com/content/2014-10-31/20141031094631771_1.shtml" target="_blank" data-ui-mark="title">《择天记OL》不删档测试</a>
+                        </h2>
+                        <p class="detail"><a href="http://news.17173.com/content/2014-10-31/20141031094631771_1.shtml" target="_blank" data-ui-mark="desc">六大职业全面登场 “参道”体系开放</a>
+                        </p>
+                    </div>
+                    <div class="ben-slide-clonebox" style="top: 0px; left: 0px; width: 358px; height: 418px; display: block; opacity: 0.940404057461502;">
+                        <a href="http://news.17173.com/content/2014-10-30/20141030100850788_1.shtml" target="_blank">
+                            <img src="http://i3.17173.itc.cn/2014/www/bigeye/2014/10/y20141030main_dd.jpg">
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!-- 焦点图 图片+文字 结束 -->
+        </div>
+        <div class="ui-switchable-prev focus-fun" data-ui-mark="tool">
+	        <a class="bt bt-focus-prev" hidefocus="" href="javascript:;" data-ui-mark="prev">前一张</a> 
+            <div class="focus-thumb" data-ui-mark="thumbsbox">
+                <div class="focus-thumb-in">
+                    <div class="ui-switchable-content" data-ui-mark="thumbs">
+                        <p class="ui-switchable-panel focus-thumb-item" data-ui-thumb-item="">
+                            <a href="javascript:;">
+                                <img data-ui-rel="0" src="http://i1.17173.itc.cn/2014/www/bigeye/2014/10/y20141029main_cs.jpg">
+                            </a>
+                        </p>
+                        <p class="ui-switchable-panel focus-thumb-item" data-ui-thumb-item="">
+                            <a href="javascript://">
+                                <img data-ui-rel="1" src="http://i3.17173.itc.cn/2014/www/bigeye/2014/10/y20141029main_bs.jpg">
+                            </a>
+                        </p>
+                        <p class="ui-switchable-panel focus-thumb-item" data-ui-thumb-item="">
+                            <a href="javascript://">
+                                <img data-ui-rel="2" src="http://i2.17173.itc.cn/2014/www/bigeye/2014/10/y20141030main_as.jpg">
+                            </a>
+                        </p>
+                        <p class="ui-switchable-panel focus-thumb-item" data-ui-thumb-item="">
+                            <a href="javascript://">
+                                <img data-ui-rel="3" src="http://i1.17173.itc.cn/2014/www/bigeye/2014/10/y20141030main_bs.jpg">
+                            </a>
+                        </p>
+                        <p class="ui-switchable-panel focus-thumb-item" data-ui-thumb-item="">
+                            <a href="javascript://">
+                                <img data-ui-rel="4" src="http://i3.17173.itc.cn/2014/www/bigeye/2014/10/y20141030main_dds.jpg">
+                            </a>
+                        </p>
+                        <p class="ui-switchable-panel focus-thumb-item" data-ui-thumb-item="">
+                            <a href="javascript://">
+                                <img data-ui-rel="5" src="http://i1.17173.itc.cn/2014/www/bigeye/2014/10/y20141031main_as.jpg">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="ui-switchable-current" style="left: 0px;"></div>
+            </div>
+            <a class="ui-switchable-next bt bt-focus-next" hidefocus="" href="javascript:;" data-ui-mark="next">后一张</a> 
+        </div>
+    </div>
+</body>
+
+</html>
