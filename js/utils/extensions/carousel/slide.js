@@ -24,7 +24,7 @@ define(function(require, exports, module) {
 			'delay': 500, // trigger delay
 			'activeTriggerClass': '.ui-switchable-active', // trigger active class
 			'step': 2, // trigger some panels
-			'viewSize': 3, // default: []
+			'viewSize': 3, // default: []  
 			'autoplay': false,
 			'interval': 3000, // auto play time
 			'circular': true, // circle or not
