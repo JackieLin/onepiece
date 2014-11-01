@@ -20,7 +20,7 @@ define(function (require, exports, module) {
 	 *  function: extend extend conf to base conf
 	 */
 	Utils.prototype.extendConfig = function(base, extend) {
-		if(!base instanceof Obeject && !extend instanceof Obeject) {
+		if(!base instanceof Object && !extend instanceof Object) {
 			this.log('Utils::extendConfig: error: base and extend must be object base:' + base + ' extend:' + extend);
 		}
 		for(var i in extend) {

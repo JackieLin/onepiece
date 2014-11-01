@@ -220,7 +220,7 @@
             <!-- 焦点图 图片+文字 结束 -->
         </div>
         <div class="focus-fun" data-ui-mark="tool">
-	        <a class="bt bt-focus-prev" hidefocus="" href="javascript:;" data-ui-mark="prev">前一张</a> 
+	        <a class="bt bt-focus-prev ui-switchable-prev" hidefocus="" href="javascript:;" data-ui-mark="prev">前一张</a> 
             <div class="focus-thumb" data-ui-mark="thumbsbox">
                 <div class="focus-thumb-in">
                     <div class="ui-switchable-content" data-ui-mark="thumbs">
@@ -266,7 +266,10 @@
 <script src="../config.js"></script>
 <script type="text/javascript">
     seajs.use(['slide'], function(Slide) {
-        var slide = new Slide();
+        var slide = new Slide({
+            triggers: ['.ui-switchable-prev', '.ui-switchable-next'],
+            activeTriggerClass: '.ui-switchable-current'
+        });
         slide.init();
     });
 </script>
