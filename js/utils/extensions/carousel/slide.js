@@ -2,6 +2,8 @@
  *  @author jackieLin
  *  @email dashi_lin@163.com
  *  @content slide effect
+ *  @ignore prev next derection
+ *  @ignore rebuild according game
  */
 define(function(require, exports, module) {
 	/**
@@ -21,7 +23,7 @@ define(function(require, exports, module) {
 			'triggerType': 'click', // (click or hover)
 			'delay': 500, // trigger delay
 			'activeTriggerClass': '.ui-switchable-active', // trigger active class
-			'step': 1, // trigger some panels
+			'step': 2, // trigger some panels
 			'viewSize': 3, // default: []
 			'autoplay': false,
 			'interval': 3000, // auto play time
@@ -120,17 +122,24 @@ define(function(require, exports, module) {
 
 		left = parseFloat($_activeTrigger.css('left').match(sToNum)[0]);
 		// binging events
+		// prev
+		$_allTriggers[0].bind(_triggerType, function() {
+			if (!g_base._isAnimating) {
+				if (left <= 0) {
+					// move to next
+					that.transition();
+				} else {
+					left -= _panelWidth;
+					$_activeTrigger.animate({
+						'left': left
+					}, _delay);
+				}
+			}
+		});
+		// next
 		$_allTriggers[1].bind(_triggerType, function() {
 			if (!g_base._isAnimating) {
 				if (left >= _viewWidth - _panelWidth) {
-					// stop next frame
-					// window.clearTimeout(this.funtimeout);
-					// init position
-					// marginLeft = -1 * 
-					// 			(Math.abs(
-					// 				parseInt($_ele.css('margin-left').match(sToNum)[0]/_panelWidth)) * _panelWidth
-					// 			);
-					// $_ele.css('margin-left', marginLeft);
 					// move to next
 					that.transition();
 				} else {
