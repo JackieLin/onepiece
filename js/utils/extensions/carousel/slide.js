@@ -23,14 +23,16 @@ define(function(require, exports, module) {
 			'triggerType': 'click', // (click or hover)
 			'delay': 500, // trigger delay
 			'activeTriggerClass': '.ui-switchable-active', // trigger active class
-			'step': 2, // trigger some panels
+			'step': 1, // trigger some panels
 			'viewSize': 3, // default: []  
 			'autoplay': false,
 			'interval': 3000, // auto play time
 			'circular': true, // circle or not
 			'duration': 2000, // animtion time
 			'effect': 'none',
-			'_isAnimating': !1
+			'_isAnimating': !1,
+			'_direction': 'left',
+			'_panelLength': 0                     			// init marquee length
 		},
 
 		/**
@@ -71,7 +73,11 @@ define(function(require, exports, module) {
 			g_utils.log('Slide::animate: element and panel must be exists!');
 			return;
 		}
-		extendLength = parseInt(_viewsize - 1);
+
+		// set _panelLength
+		g_base._panelLength = _panelLength;
+
+		extendLength = _viewsize;
 
 		$firstEle = $_panel.slice(0, extendLength);
 		$lastEle = $_panel.slice(_panelLength - extendLength, _panelLength);
@@ -176,6 +182,7 @@ define(function(require, exports, module) {
 		var _step = g_base.step,
 			$_ele = $(g_base.element),
 			$_panel = $(g_base.panel),
+			_direction = g_base._direction,
 			_panelWidth = $_panel.outerWidth(true),
 			_eleWidth = _panelWidth * $_panel.length,
 			_viewsize = g_base.viewSize,
@@ -190,11 +197,12 @@ define(function(require, exports, module) {
 		marginLeft = parseFloat($_ele.css('margin-left').match(sToNum)[0]) || 0;
 		marginLeftP = Math.abs(marginLeft);
 
-		rate = (_eleWidth - marginLeftP - _panelWidth * _viewsize) / _panelWidth - _step;
+		rate = (_direction === 'right') ? (_eleWidth - marginLeftP - _panelWidth * _viewsize) / _panelWidth - _step : marginLeftP / _panelWidth - _step;
 
 		// normal margin left
 		if (rate >= 0) {
-			marginLeft = marginLeft - _panelWidth * _step;
+			marginLeft = (_direction === 'right') ? (marginLeft - _panelWidth * _step)
+							:  (marginLeft + _panelWidth * _step);
 			$_ele.animate({
 				'margin-left': marginLeft
 			}, _delay, function() {
@@ -203,11 +211,19 @@ define(function(require, exports, module) {
 				callback || '';
 			});
 		} else {
-			// rule, now test in 1 and 2
-			rate = rate + _step - 1;
+			// rule
+			/**
+			 * 原理
+			 * @type {[type]}
+			 * 三个元素影响： 1. step 2. viewsize 3. 最后剩下多少个
+			 * 根据这三个元素，穷举可能的情况，得出规律
+			 */
+			rate =  (_direction === 'right') ? (rate + _step - _viewsize)
+						: -(rate + _step + g_base._panelLength);
 			// init
 			$_ele.css('margin-left', rate * _panelWidth);
-			marginLeft = rate * _panelWidth - _panelWidth * _step;
+			marginLeft = (_direction === 'right') ? (rate * _panelWidth - _panelWidth * _step)
+							: (rate * _panelWidth + _panelWidth * _step);
 			$_ele.animate({
 				'margin-left': marginLeft
 			}, _delay, function() {
