@@ -10,6 +10,7 @@ seajs.config({
         'carousel': '../../utils/extensions/carousel/carousel',
         'utils': 'globalUtils',
         'slide': '../../utils/extensions/carousel/slide',
+        'menuTree': '../../extensions/tree/menuTree'
 	},
 
 	paths: {

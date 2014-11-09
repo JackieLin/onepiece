@@ -2,7 +2,6 @@
  *  @author jackieLin
  *  @email dashi_lin@163.com
  *  @content slide effect
- *  @ignore prev next derection
  *  @ignore rebuild according game
  */
 define(function(require, exports, module) {
@@ -31,7 +30,7 @@ define(function(require, exports, module) {
 			'duration': 2000, // animtion time
 			'effect': 'none',
 			'_isAnimating': !1,
-			'_direction': 'left',
+			'_direction': 'right',
 			'_panelLength': 0                     			// init marquee length
 		},
 
@@ -95,10 +94,10 @@ define(function(require, exports, module) {
 		}
 
 		that.funtimeout = window.setTimeout(function() {
-			// that.transition();
-			// that.funtimeout = window.setTimeout(arguments.callee, g_base.duration);
-			$_allTriggers[1].trigger(_triggerType);
-			that.funtimeout = window.setTimeout(arguments.callee, g_base.duration);
+			if(!g_base._isAnimating) {
+				that.transition();
+			}
+			that.funtimeout = window.setTimeout(arguments.callee, g_base.duration);	
 		}, g_base.duration);
 	};
 
@@ -132,13 +131,18 @@ define(function(require, exports, module) {
 		$_allTriggers[0].bind(_triggerType, function() {
 			if (!g_base._isAnimating) {
 				if (left <= 0) {
+					g_base._direction = 'left';
 					// move to next
 					that.transition();
 				} else {
+					// running
+					g_base._isAnimating = !0;
 					left -= _panelWidth;
 					$_activeTrigger.animate({
 						'left': left
-					}, _delay);
+					}, _delay, function() {
+						g_base._isAnimating = !1;
+					});
 				}
 			}
 		});
@@ -146,13 +150,18 @@ define(function(require, exports, module) {
 		$_allTriggers[1].bind(_triggerType, function() {
 			if (!g_base._isAnimating) {
 				if (left >= _viewWidth - _panelWidth) {
+					g_base._direction = 'right';
 					// move to next
 					that.transition();
 				} else {
+					// running
+					g_base._isAnimating = !0;
 					left += _panelWidth;
 					$_activeTrigger.animate({
 						'left': left
-					}, _delay);
+					}, _delay, function() {
+						g_base._isAnimating = !1;
+					});
 				}
 			}
 		});
