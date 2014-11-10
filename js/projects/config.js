@@ -3,14 +3,18 @@
  *  @content seajs config file
  *  @url https://github.com/seajs/seajs/issues/262
  */
+
+var now = new Date();
+
 seajs.config({
 
 	alias: {
 		'jquery': 'jquery.min',
-        'carousel': '../../utils/extensions/carousel/carousel',
+        'carousel': '../../utils/extensions/switchable/carousel',
         'utils': 'globalUtils',
-        'slide': '../../utils/extensions/carousel/slide',
-        'menuTree': '../../extensions/tree/menuTree'
+        'slide': '../../utils/extensions/switchable/slide',
+        'menuTree': '../../extensions/tree/menuTree',
+        'tab': '../../utils/extensions/switchable/tab'
 	},
 
 	paths: {
@@ -21,10 +25,11 @@ seajs.config({
 	vars: {
 	  'locale': 'zh-cn'
 	},
-
 	map: [
 		// 项目JS缓存刷新
         // [/^(.*\/framework\/.*\.(?:js))(?:.*)$/i, '$1?20130507'],
+        [/^(.*\/extensions\/.*\.(?:js))(?:.*)$/i, 
+                '$1?1111111']
         // 单独JS缓存刷新
         //['main.js', 'main.js?v=20130507']
         // 项目CSS缓存刷新(暂时没有实现)
