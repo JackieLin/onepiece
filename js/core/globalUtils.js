@@ -4,6 +4,7 @@
  *   @content The global utils
  **/
 define(function (require, exports, module) {
+	'use strict';
 	var Utils = function() {
 
 	};
@@ -30,6 +31,17 @@ define(function (require, exports, module) {
 		}
 
 		return base;
+	};
+
+	/**
+	 * isType
+	 * @param  {[type]}  obj  [description]
+	 * @param  {[type]}  type [description]
+	 * @uses isType([], 'Array')
+	 * @return {Boolean}      [description]
+	 */
+	Utils.prototype.isType = function(obj, type) {
+		return Object.prototype.toString.apply(obj) === '[object ' + type + ']';
 	};
  
 	module.exports = Utils;

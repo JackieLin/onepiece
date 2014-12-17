@@ -10,8 +10,18 @@
     	}
     	/** 动画效果 **/
 		.u_carousel {
+			position: relative;
 			border-top: 1px solid #fff;
 			height: 450px;
+		}
+		
+		.u_film {
+			position: absolute;
+			overflow: hidden;
+			-webkit-transition-duration: 0.5s;
+			transition-duration: 0.5s;
+			-webkit-transform: translate3d(0px, 0px, 0px);
+			-webkit-backface-visibility: hidden; left: 0px;
 		}
 
 		ol {
@@ -86,7 +96,7 @@
 <body>
     <div class="u_carousel J_carousel">
         <div class="u_screen J_screen">
-            <ol class="u_film J_film" style="width: 100000px; margin-left: 0px;">
+            <ol class="u_film J_film" style="width: 100000px;">
                 <li class="u_film_item" style="width: 1280px; background-image: url(http://img2.atido.com/7/2014/09/24/83077363c49.jpg);">
                     <a href="http://dianshang.jingzhuan.com.cn/index.php?m=service&amp;a=about" target="_blank" class="db h100p"></a>
                 </li>

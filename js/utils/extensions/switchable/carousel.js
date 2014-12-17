@@ -75,16 +75,16 @@ define(function(require, exports, module) {
 				var rate = 'normal';
 			}
 
-			if (y) {
-				$film.animate({
-					'margin-top': distance
-				}, rate);
-			} else {
-				$film.animate({
-					'margin-left': distance
-				}, rate);
-			}
-
+			// if (y) {
+			// 	$film.animate({
+			// 		'margin-top': distance
+			// 	}, rate);
+			// } else {
+			// 	$film.animate({
+			// 		'margin-left': distance
+			// 	}, rate);
+			// }
+			$film.css('-webkit-transform', 'translate3d(' + distance + 'px, 0px, 0px)');
 			$selected.addClass('S_current').siblings().removeClass('S_current');
 		}
 	};
